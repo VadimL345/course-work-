@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Bookings</title>
+  <link rel="stylesheet" href="/css/dashboard-styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <h1>Manage Bookings</h1>
+</header>
+<nav>
+  <ul>
+    <li>
+      <button class="button dashboard" th:onclick="|location.href='@{/}'|">Dashboard</button>
+    </li>
+    <li><a th:href="@{/clients}">Manage Clients</a></li>
+    <li><a th:href="@{/rooms}">Manage Rooms</a></li>
+    <li><a th:href="@{/bookings}">Manage Bookings</a></li>
+  </ul>
+</nav>
+<main>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Client</th>
+      <th>Room</th>
+      <th>Check-In</th>
+      <th>Check-Out</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="booking : ${bookings}">
+      <td th:text="${booking.id}"></td>
+      <td th:text="${booking.client.name}"></td>
+      <td th:text="${booking.room.type}"></td>
+      <td th:text="${booking.checkInDate}"></td>
+      <td th:text="${booking.checkOutDate}"></td>
+      <td>
+        <button class="cancel" th:onclick="|location.href='@{/bookings/delete/{id}(id=${booking.id})}'|">Cancel</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="actions">
+    <button class="add" th:onclick="|location.href='@{/bookings/add}'|">Add Booking</button>
+  </div>
+</main>
+</body>
+</html>

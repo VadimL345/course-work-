@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Clients</title>
+  <link rel="stylesheet" href="/css/dashboard-styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+  <h1>Manage Clients</h1>
+</header>
+<nav>
+  <ul>
+    <li>
+      <button class="button dashboard" th:onclick="|location.href='@{/}'|">Dashboard</button>
+    </li>
+    <li><a th:href="@{/clients}">Manage Clients</a></li>
+    <li><a th:href="@{/rooms}">Manage Rooms</a></li>
+    <li><a th:href="@{/bookings}">Manage Bookings</a></li>
+  </ul>
+</nav>
+<main>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+      <td th:text="${client.id}"></td>
+      <td th:text="${client.name}"></td>
+      <td th:text="${client.email}"></td>
+      <td th:text="${client.phone}"></td>
+      <td>
+        <button class="edit" th:onclick="|location.href='@{/clients/edit/{id}(id=${client.id})}'|">Edit</button>
+        <button class="delete" th:onclick="|location.href='@{/clients/delete/{id}(id=${client.id})}'|">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="actions">
+    <button class="add" th:onclick="|location.href='@{/clients/add}'|">Add Client</button>
+  </div>
+</main>
+</body>
+</html>

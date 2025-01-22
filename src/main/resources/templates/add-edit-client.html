@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Client</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1 th:text="${client.id != null ? 'Edit Client' : 'Add Client'}"></h1>
+</header>
+<main>
+    <form th:action="@{/clients/add}" method="post">
+        <input type="hidden" name="id" th:value="${client.id}">
+        <label>Name: <input type="text" name="name" th:value="${client.name}" required></label><br>
+        <label>Email: <input type="email" name="email" th:value="${client.email}" required></label><br>
+        <label>Phone: <input type="text" name="phone" th:value="${client.phone}" required></label><br>
+        <button type="submit">Save</button>
+    </form>
+
+</main>
+</body>
+</html>

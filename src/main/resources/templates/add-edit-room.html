@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Room</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1 th:text="${room.id != null ? 'Edit Room' : 'Add Room'}"></h1>
+</header>
+<main>
+    <form th:action="@{/rooms/add}" method="post">
+        <input type="hidden" name="id" th:value="${room.id}">
+        <label>Type: <input type="text" name="type" th:value="${room.type}" required></label><br>
+        <label>Capacity: <input type="number" name="capacity" th:value="${room.capacity}" required></label><br>
+        <label>Price: <input type="number" name="price" th:value="${room.price}" required></label><br>
+        <label>Available:
+            <select name="available">
+                <option value="true" th:selected="${room.available == true}">Yes</option>
+                <option value="false" th:selected="${room.available == false}">No</option>
+            </select>
+        </label><br>
+        <button type="submit">Save</button>
+    </form>
+</main>
+</body>
+</html>

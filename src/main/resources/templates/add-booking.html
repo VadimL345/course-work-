@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Booking</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Add Booking</h1>
+</header>
+<main>
+    <form th:action="@{/bookings/add}" method="post">
+        <label for="client">Client:</label>
+        <select name="clientId" id="client" required>
+            <option value="" disabled selected>Select a client</option>
+            <option th:each="client : ${clients}"
+                    th:value="${client.id}"
+                    th:text="${client.name}"></option>
+        </select>
+        <br><br>
+
+        <label for="room">Room:</label>
+        <select name="roomId" id="room" required>
+            <option value="" disabled selected>Select a room</option>
+            <option th:each="room : ${rooms}"
+                    th:value="${room.id}"
+                    th:text="${room.type + ' - $' + room.price}"></option>
+        </select>
+        <br><br>
+
+        <label for="checkInDate">Check-In Date:</label>
+        <input type="date" id="checkInDate" name="checkInDate" required>
+        <br><br>
+
+        <label for="checkOutDate">Check-Out Date:</label>
+        <input type="date" id="checkOutDate" name="checkOutDate" required>
+        <br><br>
+
+        <button type="submit">Add Booking</button>
+    </form>
+</main>
+</body>
+</html>

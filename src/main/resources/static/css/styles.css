@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #0078d7;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+main {
+    padding: 2em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+}
+
+/* Загальні стилі для всіх кнопок */
+button {
+    background-color: #0078d7; /* Синій фон для всіх кнопок за замовчуванням */
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 4px;
+    text-align: center;
+    margin: 0.2em;
+}
+
+/* Ховер для всіх кнопок */
+button:hover {
+    background-color: #005bb5; /* Темніший синій фон при наведенні */
+}
+
+
+
+button.back:hover {
+    background-color: #5a6268; /* Темніший сірий при наведенні */
+}

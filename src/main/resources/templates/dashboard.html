@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dashboard-styles.css">
+</head>
+<body>
+<header>
+    <h1>Hotel Management Dashboard</h1>
+</header>
+<nav>
+    <ul>
+        <li>
+        </li>
+        <li><a th:href="@{/clients}">Manage Clients</a></li>
+        <li><a th:href="@{/rooms}">Manage Rooms</a></li>
+        <li><a th:href="@{/bookings}">Manage Bookings</a></li>
+    </ul>
+</nav>
+<main>
+    <section>
+        <h2>Statistics</h2>
+        <ul>
+            <li>Total Rooms: <span th:text="${totalRooms}"></span></li>
+            <li>Available Rooms: <span th:text="${availableRooms}"></span></li>
+            <li>Booked Rooms: <span th:text="${bookedRooms}"></span></li>
+            <li>Total Clients: <span th:text="${totalClients}"></span></li>
+        </ul>
+    </section>
+</main>
+</body>
+</html>
